@@ -28,11 +28,11 @@ public class BookingService {
 
     public void viewAll() {
         List<Booking> bookings = bookingDao.getAll();
-        List<BookingResponseDTO> bookingUsers2 = new ArrayList<>();
+        List<BookingResponseDTO> result = new ArrayList<>();
         for (Booking booking : bookings) {
             User user = userDao.getById(booking.getIdUser());
             Car car = carDao.getById(booking.getIdCar());
-            bookingUsers2.add(new BookingResponseDTO(
+            result.add(new BookingResponseDTO(
                     booking.getIdCar(),
                     booking.getIdUser(),
                     car.getName(),
@@ -41,7 +41,7 @@ public class BookingService {
                     booking.getTimeEnd()
             ));
         }
-        bookingUsers2.forEach(System.out::println);
+        result.forEach(System.out::println);
     }
 
     public void addBooking() {

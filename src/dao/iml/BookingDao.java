@@ -2,11 +2,8 @@ package dao.iml;
 
 import dao.Dao;
 import model.Booking;
-import model.User;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class BookingDao implements Dao<Booking> {
