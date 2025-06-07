@@ -44,14 +44,17 @@ public class MenuService  {
                     System.out.println("Booking car...");
                     break;
                 case 2:
-                    System.out.println("View all users booked car");
-                    carService.viewAll();
+                    System.out.println("View all users booked cars");
                     break;
                 case 3:
-                    System.out.println(" View all booking");
+                    System.out.println(" View all bookings");
                     bookingService.viewAll();
                     break;
-                case 4, 5:
+                case 4:
+                    System.out.println("View all cars");
+                    carService.viewAll();
+                    break;
+                case 5:
                     break;
                 case 6:
                     userService.viewAll();
@@ -63,10 +66,6 @@ public class MenuService  {
                     scanner.close();
                     return;
             }
-
-
         }
-
-
     }
 }
