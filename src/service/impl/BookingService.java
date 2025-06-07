@@ -1,24 +1,11 @@
 package service.impl;
 
-import model.Booking;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import dao.iml.BookingDao;
 
 public class BookingService {
-    List<Booking> bookings = new ArrayList<Booking>();
+    BookingDao bookingDao = new BookingDao();
 
-    public List<Booking> initListBookings() {
-        Date date = new Date(2015, Calendar.APRIL, 2);
-        bookings.add(new Booking("1", "1", date, date));
-        return  bookings;
-    }
-
-    public void view() {
-        for (Booking bookings : bookings) {
-            System.out.println(bookings);
-        }
+    public void viewAll() {
+        bookingDao.viewAll();
     }
 }

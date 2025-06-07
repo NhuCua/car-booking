@@ -11,8 +11,6 @@ public class Main {
 
         MenuService menuService = new MenuService(userService, carService,bookingService);
 
-        bookingService.initListBookings();
-
         menuService.welcome();
         menuService.menu();
     }
