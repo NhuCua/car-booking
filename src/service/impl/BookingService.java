@@ -1,8 +1,11 @@
 package service.impl;
 
+import Dto.BookingResponseDTO;
 import dao.iml.BookingDao;
+import dao.iml.CarDao;
 import dao.iml.UserDao;
 import model.Booking;
+import model.Car;
 import model.User;
 
 import java.text.SimpleDateFormat;
@@ -17,6 +20,7 @@ public class BookingService {
 
     UserDao userDao = new UserDao();
     UserService userService = new UserService();
+    CarDao carDao = new CarDao();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -24,26 +28,21 @@ public class BookingService {
     public void viewAll() {
         List<Booking> bookings = bookingDao.getAll();
         List<User> users = userDao.getAll();
-        List<String> result = new ArrayList<>();
+        List<Car> cars = carDao.getAll();
 
-        for (Booking booking : bookings) {
-            for (User user : users) {
-                if (booking.getIdUser() == user.getId()) {
-                    result.add("UserName: " + user.getName() + ", Car: " + booking.getIdUser());
-                }
-            }
-        }
-
-        //cách 2
-        List<String> result2 = bookings.stream()
+        List<BookingResponseDTO> bookingUsers = bookings.stream()
                 .flatMap(booking -> users.stream()
-                        .filter(user -> user.getId() == booking.getIdUser())
-                        .map(user -> "User: " + user.getName() + ", Car: " + booking.getIdCar()))
-                .collect(Collectors.toList());
+                        .filter(user ->Objects.equals(user.getId(), booking.getIdUser()))
+                        .map(user -> new BookingResponseDTO( booking.getIdCar(), booking.getIdUser(),null ,user.getName(), booking.getTimeStart(), booking.getTimeEnd())))
+                .toList();
 
-        result.forEach(System.out::println);
+        List<BookingResponseDTO> bookingCar = bookingUsers.stream()
+                .flatMap(bookingUser -> cars.stream()
+                        .filter(car ->Objects.equals(car.getId(), bookingUser.getIdCar()))
+                        .map(car -> new BookingResponseDTO( bookingUser.getIdCar(), bookingUser.getIdName(),car.getName() ,bookingUser.getNameUser(), bookingUser.getTimeStart(), bookingUser.getTimeEnd())))
+                .toList();
 
-
+        bookingCar.forEach(System.out::println);
     }
 
     public void addBooking() {
@@ -58,6 +57,7 @@ public class BookingService {
         String idUser = userDao.getUserIdByIndex(indexUserChoose - 1);
 
         System.out.println("Please enter the car ID you want to book:");
+
 
         String idCar = scanner.nextLine();
 

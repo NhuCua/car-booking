@@ -3,35 +3,55 @@ package Dto;
 import java.util.Date;
 
 public class BookingResponseDTO {
-    private String NameCar;
-    private String NameUser;
+    private String idCar;
+    private String idName;
+    private String nameCar;
+    private String nameUser;
     private Date timeStart;
     private Date timeEnd;
 
     public BookingResponseDTO() {
     }
 
-    public BookingResponseDTO(String nameCar, String nameUser, Date timeStart, Date timeEnd) {
-        NameCar = nameCar;
-        NameUser = nameUser;
+    public BookingResponseDTO(String idCar, String idName, String nameCar, String nameUser, Date timeStart, Date timeEnd) {
+        this.idCar = idCar;
+        this.idName = idName;
+        this.nameCar = nameCar;
+        this.nameUser = nameUser;
         this.timeStart = timeStart;
         this.timeEnd = timeEnd;
     }
 
+    public String getIdCar() {
+        return idCar;
+    }
+
+    public void setIdCar(String idCar) {
+        this.idCar = idCar;
+    }
+
+    public String getIdName() {
+        return idName;
+    }
+
+    public void setIdName(String idName) {
+        this.idName = idName;
+    }
+
     public String getNameCar() {
-        return NameCar;
+        return nameCar;
     }
 
     public void setNameCar(String nameCar) {
-        NameCar = nameCar;
+        this.nameCar = nameCar;
     }
 
     public String getNameUser() {
-        return NameUser;
+        return nameUser;
     }
 
     public void setNameUser(String nameUser) {
-        NameUser = nameUser;
+        this.nameUser = nameUser;
     }
 
     public Date getTimeStart() {
@@ -53,8 +73,10 @@ public class BookingResponseDTO {
     @Override
     public String toString() {
         return "BookingResponseDTO{" +
-                "NameCar='" + NameCar + '\'' +
-                ", NameUser='" + NameUser + '\'' +
+                "idCar='" + idCar + '\'' +
+                ", idName='" + idName + '\'' +
+                ", nameCar='" + nameCar + '\'' +
+                ", nameUser='" + nameUser + '\'' +
                 ", timeStart=" + timeStart +
                 ", timeEnd=" + timeEnd +
                 '}';
