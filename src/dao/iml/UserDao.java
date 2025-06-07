@@ -5,6 +5,7 @@ import model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class UserDao implements Dao<User> {
 
@@ -25,6 +26,11 @@ public class UserDao implements Dao<User> {
     public List<User> getAllUserByIds(List<String> ids) {
         return users.stream().filter(user -> ids.contains(user.getId())).toList();
     }
+
+    public User getById(String id) {
+        return users.stream().filter(car -> Objects.equals(car.getId(), id)).findFirst().orElse(null);
+    }
+
     public String getUserIdByIndex(int index) {
         if (index < 0 || index >= users.size()) {
             throw new IndexOutOfBoundsException("Index out of bounds: " + index);

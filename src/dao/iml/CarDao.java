@@ -2,9 +2,11 @@ package dao.iml;
 
 import dao.Dao;
 import model.Car;
+import model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class CarDao implements Dao<Car> {
     private final List<Car> cars = new ArrayList<>();
@@ -16,9 +18,17 @@ public class CarDao implements Dao<Car> {
     }
 
     @Override
+    public Car getById(String id) {
+        return cars.stream().filter(car -> Objects.equals(car.getId(), id)).findFirst().orElse(null);
+    }
+
+
+    @Override
     public List<Car> getAll() {
         return cars;
     }
+
+
 
 
     public String getCarIdByIndex(int index) {

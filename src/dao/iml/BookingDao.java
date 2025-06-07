@@ -17,6 +17,11 @@ public class BookingDao implements Dao<Booking> {
         return bookings;
     }
 
+    @Override
+    public Booking getById(String id) {
+        return null;
+    }
+
     public void addBooking(Booking booking) {
         bookings.add(booking);
         System.out.println("Booking added: " + booking);

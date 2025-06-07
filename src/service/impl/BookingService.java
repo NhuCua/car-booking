@@ -28,22 +28,20 @@ public class BookingService {
 
     public void viewAll() {
         List<Booking> bookings = bookingDao.getAll();
-        List<User> users = userDao.getAll();
-        List<Car> cars = carDao.getAll();
-
-        List<BookingResponseDTO> bookingUsers = bookings.stream()
-                .flatMap(booking -> users.stream()
-                        .filter(user ->Objects.equals(user.getId(), booking.getIdUser()))
-                        .map(user -> new BookingResponseDTO( booking.getIdCar(), booking.getIdUser(),null ,user.getName(), booking.getTimeStart(), booking.getTimeEnd())))
-                .toList();
-
-        List<BookingResponseDTO> bookingCar = bookingUsers.stream()
-                .flatMap(bookingUser -> cars.stream()
-                        .filter(car ->Objects.equals(car.getId(), bookingUser.getIdCar()))
-                        .map(car -> new BookingResponseDTO( bookingUser.getIdCar(), bookingUser.getIdName(),car.getName() ,bookingUser.getNameUser(), bookingUser.getTimeStart(), bookingUser.getTimeEnd())))
-                .toList();
-
-        bookingCar.forEach(System.out::println);
+        List<BookingResponseDTO> bookingUsers2 = new ArrayList<>();
+        for (Booking booking : bookings) {
+            User user = userDao.getById(booking.getIdUser());
+            Car car = carDao.getById(booking.getIdCar());
+            bookingUsers2.add(new BookingResponseDTO(
+                    booking.getIdCar(),
+                    booking.getIdUser(),
+                    car.getName(),
+                    user.getName(),
+                    booking.getTimeStart(),
+                    booking.getTimeEnd()
+            ));
+        }
+        bookingUsers2.forEach(System.out::println);
     }
 
     public void addBooking() {
