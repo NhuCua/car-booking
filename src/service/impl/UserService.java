@@ -1,12 +1,12 @@
 package service.impl;
 
 import model.User;
-import service.IUserService;
+import service.IView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserService implements IUserService {
+public class UserService implements IView {
 
     public List<User> initListUsers() {
         List<User> users = new ArrayList<User>();
@@ -24,4 +24,8 @@ public class UserService implements IUserService {
     }
 
 
+    @Override
+    public void view() {
+
+    }
 }
