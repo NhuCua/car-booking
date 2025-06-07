@@ -45,6 +45,7 @@ public class MenuService implements IView {
                     break;
                 case 3:
                     System.out.println(" View all booking");
+
                     break;
                 case 4, 5:
                     break;
