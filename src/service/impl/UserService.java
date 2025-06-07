@@ -1,17 +1,13 @@
 package service.impl;
 
+import dao.Dao;
 import model.User;
-import service.IView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserService implements IView {
-    List<User> users = new ArrayList<User>();
-
-    public List<User> getListUsers() {
-        return users;
-    }
+public class UserService implements Dao<User> {
+    private final List<User> users = new ArrayList<>();
 
     public void initListUsers() {
         users.add(new User("Cua", "1"));
@@ -20,9 +16,16 @@ public class UserService implements IView {
     }
 
     @Override
-    public void view() {
+    public void viewAll() {
         for (User user : users) {
-            System.out.println(user);
+            System.out.println(user.getId());
+            System.out.println(user.getName());
+            System.out.println("-------------------");
         }
+    }
+
+    @Override
+    public List<User> getAll() {
+        return users;
     }
 }
