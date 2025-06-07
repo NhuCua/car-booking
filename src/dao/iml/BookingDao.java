@@ -34,4 +34,11 @@ public class BookingDao implements Dao<Booking> {
             System.out.println("-------------------");
         }
     }
+
+    public void addBooking(Booking booking) {
+        bookings.add(booking);
+        System.out.println("Booking added: " + booking);
+    }
+
+
 }
