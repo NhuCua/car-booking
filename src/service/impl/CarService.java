@@ -17,13 +17,12 @@ public class CarService {
     }
 
     public void viewAllElectricCars() {
-        List<Car> cars = carDao.getAll();
-        for (Car car : cars) {
-            if (car.getType().equals("electric")) {
-                System.out.println(car.toString());
-                System.out.println("-------------------");
-            }
-        }
+        carDao.getAll().stream()
+                .filter(car -> car.getType().equals("electric"))
+                .forEach(car -> {
+                    System.out.println(car);
+                    System.out.println("-------------------");
+                });
     }
 
     public List<Car> getAll() {
