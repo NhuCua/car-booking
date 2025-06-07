@@ -5,10 +5,9 @@ import dao.iml.UserDao;
 import model.Booking;
 import model.User;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+
+import java.util.*;
 import java.util.stream.Collectors;
 
 import java.util.List;
@@ -54,9 +53,11 @@ public class BookingService {
             System.out.println((i + 1) + ". " + users.get(i).getName() + " (ID: " + users.get(i).getId() + ")");
         }
         int indexUserChoose = scanner.nextInt();
-        String idUser = userDao.getUserIdByIndex(indexUserChoose - 1);
-        System.out.println("Please enter the car ID you want to book:");
+        scanner.nextLine();
 
+        String idUser = userDao.getUserIdByIndex(indexUserChoose - 1);
+
+        System.out.println("Please enter the car ID you want to book:");
 
         String idCar = scanner.nextLine();
 
@@ -66,9 +67,16 @@ public class BookingService {
         System.out.println("Please enter the end time of the booking (yyyy-MM-dd):");
         String endTimeInput = scanner.nextLine();
 
-        bookingDao.addBooking(new Booking(idCar,idUser,
-                new Date(startTimeInput), new Date(endTimeInput)));
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
+        try {
+            bookingDao.addBooking(new Booking(idCar,idUser,
+                    dateFormat.parse(startTimeInput),  dateFormat.parse(endTimeInput)));
+
+        } catch (Exception e) {
+            System.out.println("Invalid date format. Please use dd-MMM-yyyy.");
+
+        }
 
     }
 
