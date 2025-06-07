@@ -38,4 +38,7 @@ public class BookingDao implements Dao<Booking> {
     }
 
 
+    public List<String> getAllUserBookedCar() {
+        return bookings.stream().map(Booking::getIdUser).toList();
+    }
 }

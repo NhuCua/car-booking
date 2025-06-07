@@ -31,4 +31,7 @@ public class UserDao implements Dao<User> {
         return users;
     }
 
+    public List<User> getAllUserByIds(List<String> ids) {
+        return users.stream().filter(user -> ids.contains(user.getId())).toList();
+    }
 }

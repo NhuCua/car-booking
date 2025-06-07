@@ -44,7 +44,8 @@ public class MenuService  {
                     System.out.println("Booking car...");
                     break;
                 case 2:
-                    System.out.println("View all users booked cars");
+                    System.out.println("--------------- Here is all user booked car ---------------");
+                    bookingService.viewAllUserBookedCar();
                     break;
                 case 3:
                     System.out.println(" View all bookings");
@@ -66,6 +67,10 @@ public class MenuService  {
                     scanner.close();
                     return;
             }
+
+
         }
+
+
     }
 }

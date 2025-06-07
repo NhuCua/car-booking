@@ -10,10 +10,13 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
+import java.util.List;
+
 public class BookingService {
     BookingDao bookingDao = new BookingDao();
 
     UserDao userDao = new UserDao();
+    UserService userService = new UserService();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -50,5 +53,14 @@ public class BookingService {
             System.out.println((i + 1) + ". " + users.get(i).getName() + " (ID: " + users.get(i).getId() + ")");
         }
         int indexUserChoose = scanner.nextInt();
+
+
+
+
+    }
+
+    public void viewAllUserBookedCar() {
+        List<String> userIds = bookingDao.getAllUserBookedCar();
+        userService.viewAllUserByIds(userIds);
     }
 }
