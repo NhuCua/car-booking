@@ -10,7 +10,7 @@ public class Main {
         BookingService bookingService = new BookingService();
 
         MenuService menuService = new MenuService(userService, carService,bookingService);
-        userService.initListUsers();
+
         bookingService.initListBookings();
 
         menuService.welcome();

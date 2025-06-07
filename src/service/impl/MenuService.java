@@ -1,11 +1,8 @@
 package service.impl;
 
-
-import service.IView;
-
 import java.util.Scanner;
 
-public class MenuService implements IView {
+public class MenuService  {
     private static final Scanner scanner = new Scanner(System.in);
 
     private final UserService userService;

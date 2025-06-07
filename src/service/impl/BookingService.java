@@ -9,7 +9,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class BookingService implements IView {
+public class BookingService {
     List<Booking> bookings = new ArrayList<Booking>();
 
     public List<Booking> initListBookings() {
@@ -18,7 +18,6 @@ public class BookingService implements IView {
         return  bookings;
     }
 
-    @Override
     public void view() {
         for (Booking bookings : bookings) {
             System.out.println(bookings);

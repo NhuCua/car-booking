@@ -1,31 +1,20 @@
 package service.impl;
 
-import dao.Dao;
+import dao.iml.UserDao;
 import model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class UserService implements Dao<User> {
-    private final List<User> users = new ArrayList<>();
+public class UserService {
 
-    public void initListUsers() {
-        users.add(new User("Cua", "1"));
-        users.add(new User("Hoa", "2"));
-        users.add(new User("Kiet", "3"));
-    }
+    UserDao userDao = new UserDao();
 
-    @Override
     public void viewAll() {
-        for (User user : users) {
-            System.out.println(user.getId());
-            System.out.println(user.getName());
-            System.out.println("-------------------");
-        }
+        userDao.viewAll();
     }
 
-    @Override
+
     public List<User> getAll() {
-        return users;
+        return userDao.getAll();
     }
 }
