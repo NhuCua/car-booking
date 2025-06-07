@@ -20,8 +20,12 @@ public class CarDao implements Dao<Car> {
         return cars;
     }
 
-    @Override
-    public void viewAll() {
 
+    public String getCarIdByIndex(int index) {
+        if (index < 0 || index >= cars.size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        return cars.get(index).getId();
     }
+
 }

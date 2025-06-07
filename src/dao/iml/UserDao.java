@@ -18,15 +18,6 @@ public class UserDao implements Dao<User> {
 
 
     @Override
-    public void viewAll() {
-        for (User user : users) {
-            System.out.println(user.getId());
-            System.out.println(user.getName());
-            System.out.println("-------------------");
-        }
-    }
-
-    @Override
     public List<User> getAll() {
         return users;
     }

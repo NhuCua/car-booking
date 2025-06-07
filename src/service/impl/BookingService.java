@@ -19,6 +19,9 @@ public class BookingService {
     BookingDao bookingDao = new BookingDao();
 
     UserDao userDao = new UserDao();
+
+    CarDao carDao = new CarDao();
+
     UserService userService = new UserService();
     CarDao carDao = new CarDao();
 
@@ -47,6 +50,9 @@ public class BookingService {
 
     public void addBooking() {
         List<User> users = userDao.getAll();
+
+        List<Car> cars = carDao.getAll();
+
         System.out.println("Choose a user to book a car:");
         for (int i = 0; i < users.size(); i++) {
             System.out.println((i + 1) + ". " + users.get(i).getName() + " (ID: " + users.get(i).getId() + ")");
@@ -56,10 +62,19 @@ public class BookingService {
 
         String idUser = userDao.getUserIdByIndex(indexUserChoose - 1);
 
-        System.out.println("Please enter the car ID you want to book:");
+        System.out.println("Choose a car to book a car:");
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.println((i + 1) + ". " + cars.get(i).getName() + " (ID: " + cars.get(i).getId() + ")");
+        }
 
+<<<<<<< Updated upstream
 
         String idCar = scanner.nextLine();
+=======
+        int indexCarChoose = scanner.nextInt();
+        scanner.nextLine();
+        String idCar = carDao.getCarIdByIndex(indexCarChoose - 1);
+>>>>>>> Stashed changes
 
         System.out.println("Please enter the start time of the booking (yyyy-MM-dd):");
         String startTimeInput = scanner.nextLine();
