@@ -41,7 +41,7 @@ public class MenuService  {
 
             switch (choose) {
                 case 1:
-                    System.out.println("Booking car...");
+                    bookingService.addBooking();
                     break;
                 case 2:
                     System.out.println("--------------- Here is all user booked car ---------------");

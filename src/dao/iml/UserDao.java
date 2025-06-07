@@ -34,4 +34,12 @@ public class UserDao implements Dao<User> {
     public List<User> getAllUserByIds(List<String> ids) {
         return users.stream().filter(user -> ids.contains(user.getId())).toList();
     }
+    public String getUserIdByIndex(int index) {
+        if (index < 0 || index >= users.size()) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+        return users.get(index).getId();
+    }
+
+
 }
