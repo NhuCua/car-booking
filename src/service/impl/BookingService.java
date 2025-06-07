@@ -11,7 +11,6 @@ import model.User;
 import java.text.SimpleDateFormat;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 import java.util.List;
 
@@ -23,7 +22,6 @@ public class BookingService {
     CarDao carDao = new CarDao();
 
     UserService userService = new UserService();
-    CarDao carDao = new CarDao();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -67,14 +65,11 @@ public class BookingService {
             System.out.println((i + 1) + ". " + cars.get(i).getName() + " (ID: " + cars.get(i).getId() + ")");
         }
 
-<<<<<<< Updated upstream
 
-        String idCar = scanner.nextLine();
-=======
         int indexCarChoose = scanner.nextInt();
         scanner.nextLine();
         String idCar = carDao.getCarIdByIndex(indexCarChoose - 1);
->>>>>>> Stashed changes
+
 
         System.out.println("Please enter the start time of the booking (yyyy-MM-dd):");
         String startTimeInput = scanner.nextLine();
