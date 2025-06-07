@@ -5,17 +5,19 @@ import service.IView;
 
 import java.util.Scanner;
 
-public class MenuService {
+public class MenuService implements IView {
     private static final Scanner scanner = new Scanner(System.in);
 
     private final UserService userService;
+    private final BookingService bookingService;
 
     private final CarService carService;
 
 
-    public MenuService(UserService userService, CarService carService) {
+    public MenuService(UserService userService, CarService carService, BookingService bookingService) {
         this.userService = userService;
         this.carService = carService;
+        this.bookingService = bookingService;
     }
 
 
@@ -49,13 +51,9 @@ public class MenuService {
                     break;
                 case 3:
                     System.out.println(" View all booking");
-
+                    bookingService.view();
                     break;
-                case 4:
-                    System.out.println(" View all cars");
-                    carService.view();
-                    break;
-                case 5:
+                case 4, 5:
                     break;
                 case 6:
                     userService.view();
@@ -75,4 +73,8 @@ public class MenuService {
     }
 
 
+    @Override
+    public void view() {
+
+    }
 }
