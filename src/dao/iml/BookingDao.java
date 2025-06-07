@@ -21,16 +21,13 @@ public class BookingDao implements Dao<Booking> {
 
     @Override
     public List<Booking> getAll() {
-        return List.of();
+        return bookings;
     }
 
     @Override
     public void viewAll() {
-        for (Booking bookings : bookings) {
-            System.out.println(bookings.getIdCar());
-            System.out.println(bookings.getIdUser());
-            System.out.println(bookings.getTimeStart());
-            System.out.println(bookings.getTimeEnd());
+        for (Booking booking : bookings) {
+            System.out.println(booking.toString());
             System.out.println("-------------------");
         }
     }
