@@ -67,6 +67,7 @@ public class BookingService {
 
         System.out.println("Choose a car to book a car:");
         int indexCarChoose = scanner.nextInt();
+        scanner.nextLine();
         String idCar = carDao.getCarIdByIndex(indexCarChoose - 1);
 
         System.out.println("Please enter the start time of the booking (yyyy-MM-dd):");
