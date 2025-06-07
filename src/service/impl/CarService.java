@@ -2,7 +2,6 @@ package service.impl;
 
 import dao.iml.CarDao;
 import model.Car;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CarService {
@@ -16,5 +15,5 @@ public class CarService {
         }
     }
 
-    public List<Car> getAll() {return carDao.getAll();};
+    public List<Car> getAll() {return carDao.getAll();}
 }
