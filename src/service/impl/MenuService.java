@@ -6,15 +6,21 @@ import java.util.Scanner;
 public class MenuService {
     private static final Scanner scanner = new Scanner(System.in);
 
+    private final UserService userService;
 
-    public static void welcome() {
+    public  MenuService(UserService userService) {
+        this.userService = userService;
+    }
+
+
+    public  void welcome() {
         System.out.println("Welcome to booking system!");
         System.out.println("Enter your name?");
         String name = scanner.nextLine();
         System.out.println("Your name is " + name + ". How can I help you today?");
     }
 
-    public static void menu() {
+    public  void menu() {
 
         while (true) {
             System.out.println("1. Booking car");
@@ -42,8 +48,6 @@ public class MenuService {
                 case 4, 5:
                     break;
                 case 6:
-                    UserService userService = new UserService();
-                    System.out.println("View all users booked car...");
                     userService.viewAllUsers();
                     break;
                 case 7:

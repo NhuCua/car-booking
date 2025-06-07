@@ -8,7 +8,7 @@ import java.util.List;
 
 public class UserService implements IUserService {
 
-    private List<User> initListUsers() {
+    public List<User> initListUsers() {
         List<User> users = new ArrayList<User>();
         users.add(new User("Cua", "1"));
         users.add(new User("Hoa", "2"));
