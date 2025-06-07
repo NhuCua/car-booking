@@ -56,6 +56,8 @@ public class MenuService  {
                     carService.viewAll();
                     break;
                 case 5:
+                    System.out.println("View all electric cars");
+                    carService.viewAllElectricCars();
                     break;
                 case 6:
                     userService.viewAll();
@@ -67,10 +69,6 @@ public class MenuService  {
                     scanner.close();
                     return;
             }
-
-
         }
-
-
     }
 }
