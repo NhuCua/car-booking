@@ -36,38 +36,36 @@ public class MenuService  {
             System.out.println("7. Exit");
 
             System.out.println("Choose an option");
-            int choose = scanner.nextInt();
-            scanner.nextLine();
+
+            String choose = scanner.nextLine().trim();
 
             switch (choose) {
-                case 1:
+                case "1":
                     bookingService.addBooking();
                     break;
-                case 2:
-                    System.out.println("--------------- Here is all user booked car ---------------");
+                case "2":
                     bookingService.viewAllUserBookedCar();
                     break;
-                case 3:
+                case "3":
                     System.out.println(" View all bookings");
                     bookingService.viewAll();
                     break;
-                case 4:
+                case "4":
                     System.out.println("View all cars");
                     carService.viewAll();
                     break;
-                case 5:
+                case "5":
                     System.out.println("View all electric cars");
                     carService.viewAllElectricCars();
                     break;
-                case 6:
+                case "6":
                     userService.viewAll();
                     break;
-                case 7:
+                case "7":
                     return;
                 default:
                     System.out.println("Invalid option, please try again.");
-                    scanner.close();
-                    return;
+                    break;
             }
         }
     }

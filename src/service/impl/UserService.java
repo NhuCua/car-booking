@@ -22,6 +22,7 @@ public class UserService {
     }
 
     public void viewAllUserByIds(List<String> ids) {
+        System.out.println("--------------- Here is all user booked car ---------------");
         List<User> users = userDao.getAllUserByIds(ids);
         for (User user : users) {
             System.out.println(user.toString());
