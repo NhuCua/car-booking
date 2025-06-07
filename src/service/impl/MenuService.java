@@ -49,7 +49,7 @@ public class MenuService implements IView {
                 case 4, 5:
                     break;
                 case 6:
-                    userService.viewAllUsers();
+                    userService.view();
                     break;
                 case 7:
                     return;

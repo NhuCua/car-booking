@@ -6,6 +6,7 @@ public class Main {
         UserService userService = new UserService();
 
         MenuService menuService = new MenuService(userService);
+        userService.initListUsers();
 
 
         menuService.welcome();
