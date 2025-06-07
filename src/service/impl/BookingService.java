@@ -1,8 +1,6 @@
 package service.impl;
 
 import model.Booking;
-import model.User;
-import service.IView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
