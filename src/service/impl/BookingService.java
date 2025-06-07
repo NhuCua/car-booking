@@ -63,19 +63,11 @@ public class BookingService {
             System.out.println((i + 1) + ". " + cars.get(i).getName() + " (ID: " + cars.get(i).getId() + ")");
         }
 
-        String idCar = "";
-        while (true) {
-            System.out.println("Choose a car to book a car:");
-            int indexCarChoose = scanner.nextInt();
-            scanner.nextLine();
-            if(indexCarChoose < 0  || indexCarChoose >= cars.size()) {
-                System.out.println("You have chosen car: " + cars.get(indexCarChoose - 1).getName());
-                break;
-            } else {
-                carDao.getCarIdByIndex(indexCarChoose - 1);
-            }
-        }
 
+
+        System.out.println("Choose a car to book a car:");
+        int indexCarChoose = scanner.nextInt();
+        String idCar = carDao.getCarIdByIndex(indexCarChoose - 1);
 
         System.out.println("Please enter the start time of the booking (yyyy-MM-dd):");
         String startTimeInput = scanner.nextLine();
