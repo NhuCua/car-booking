@@ -45,10 +45,11 @@ public class MenuService  {
                     break;
                 case 2:
                     System.out.println("View all users booked car");
+                    carService.viewAll();
                     break;
                 case 3:
                     System.out.println(" View all booking");
-                    bookingService.view();
+                    bookingService.viewAll();
                     break;
                 case 4, 5:
                     break;
