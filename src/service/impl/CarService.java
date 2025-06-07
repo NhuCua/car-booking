@@ -2,11 +2,12 @@ package service.impl;
 
 import model.Car;
 import model.User;
+import service.IView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarService {
+public class CarService implements IView {
 
     public List<Car> initListCars() {
         List<Car> cars = new ArrayList<Car>();
@@ -17,4 +18,11 @@ public class CarService {
     }
 
 
+    @Override
+    public void view() {
+        List<Car> cars = initListCars();
+        for (Car car : cars) {
+            System.out.println(car);
+        }
+    }
 }
